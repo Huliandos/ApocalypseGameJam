@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     //These are getting adjusted according to the player movement speed
     float _camMaxDistanceToStart, _camMoveYNextFUpdate;
     float _camLocalCenterY;
-    bool _raiseCamera = true;
+    bool _raiseCamera = true, _breathingReset;
 
     [Header("Input states")]
     //Used to get input in update and calculate movement in fixed update
@@ -151,6 +151,27 @@ public class PlayerController : MonoBehaviour
         _camMaxDistanceToStart = _camMaxDistanceToStartDefault + _camMaxDistanceToStartDefault * _rb.velocity.magnitude * 2;
 
         //if camera has reached its max distance from the original position
+        if (_cameraTransform.localPosition.y > _camLocalCenterY + _camMaxDistanceToStart && _raiseCamera)
+        {
+            _raiseCamera = false;
+        }
+        else if (_cameraTransform.localPosition.y < _camLocalCenterY - _camMaxDistanceToStart && !_raiseCamera)
+        {
+            _raiseCamera = true;
+
+            if (_moveVertical || _moveHorizontal)
+            {
+                int random = Random.Range(0, _fastSteps.Length);
+
+                if (_sprint)
+                    _footstepAudio.PlayOneShot(_footstepAudio.clip = _fastSteps[random]);
+
+                else
+                    _footstepAudio.PlayOneShot(_footstepAudio.clip = _slowSteps[random]);
+            }
+        }
+        /*
+        //ToDo: make sure this cleaner solution works
         if (Mathf.Abs(_cameraTransform.localPosition.y - _camLocalCenterY) > _camMaxDistanceToStart)
         {
             _raiseCamera = !_raiseCamera;
@@ -167,6 +188,7 @@ public class PlayerController : MonoBehaviour
                     _footstepAudio.PlayOneShot(_footstepAudio.clip = _slowSteps[random]);
             }
         }
+        */
 
         //if camera is supposed to be lowered
         if (!_raiseCamera)
