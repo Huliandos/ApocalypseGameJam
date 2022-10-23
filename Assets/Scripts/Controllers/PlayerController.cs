@@ -35,6 +35,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField][Tooltip("Audio source attached as child to player for 3D audio")]
     AudioSource _footstepAudio;
 
+    [Header("Flashlight")]
+    [SerializeField]
+    Light _flashlight;
+
+    AudioSource _flashlightAudioSource;
+
+    [SerializeField]
+    AudioClip _flashlightOnAudio, _flashlightOffAudio;
+
+    bool _flashlightOn = true;
+
     [Header("Camera steping/breathing movement simulation")]
     [SerializeField]
     const float _camMaxDistanceToStartDefault = 0.01f, _camMoveYIdle = 0.0005f;
@@ -62,6 +73,8 @@ public class PlayerController : MonoBehaviour
         _rb = gameObject.GetComponent<Rigidbody>();
 
         _standingY = transform.position.y;
+
+        _flashlightAudioSource = _flashlight.GetComponent<AudioSource>();
 
         _camLocalCenterY = _cameraTransform.localPosition.y;
         _camMaxDistanceToStart = _camMaxDistanceToStartDefault;
@@ -118,6 +131,17 @@ public class PlayerController : MonoBehaviour
                     StopCoroutine(_currentCrouchingCoroutine);
                 _currentCrouchingCoroutine = StartCoroutine(SmoothCrouch(_standingY));
             }
+        }
+
+        if (Input.GetButtonDown(Inputs.Flashlight))
+        {
+            _flashlightOn = !_flashlightOn;
+            _flashlight.enabled = _flashlightOn;
+
+            if (_flashlightOn)
+                _flashlightAudioSource.PlayOneShot(_flashlightOnAudio);
+            else
+                _flashlightAudioSource.PlayOneShot(_flashlightOffAudio);
         }
 
         //camera movement for first person view
