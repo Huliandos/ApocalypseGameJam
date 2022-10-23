@@ -5,7 +5,7 @@ using UnityEngine;
 public class Tags : MonoBehaviour
 {
     public const string Player = "Player";
+    public const string Enemy = "Enemy";
     public const string GameController = "GameController";
-    public const string Wall = "Wall";
-    public const string Door = "Door";
+    public const string Interactable = "Interactable";
 }

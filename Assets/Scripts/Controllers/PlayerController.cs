@@ -200,7 +200,9 @@ public class PlayerController : MonoBehaviour
 
     public void OnTriggerEnterFromChild(Collider other)
     {
-        //ToDo: Interaction with objects in world here
+        if (other.tag == Tags.Interactable) {
+            other.GetComponent<Interactables>().Interact(gameObject);
+        }
     }
 
     #region helper funcitons
