@@ -6,7 +6,11 @@ public class Door_SlidingAnimation : MonoBehaviour
 {
     [SerializeField]
     AudioClip[] _openingSounds, _closingSounds;
+    SoundCaster _soundCaster;
     AudioSource _audioSource;
+
+    [SerializeField]
+    float _openingRange = 8;
 
     int _charsInTrigger = 0;
 
@@ -17,6 +21,7 @@ public class Door_SlidingAnimation : MonoBehaviour
 
     private void Start()
     {
+        _soundCaster = GetComponent<SoundCaster>();
         _audioSource = GetComponent<AudioSource>();
     }
 
@@ -29,7 +34,8 @@ public class Door_SlidingAnimation : MonoBehaviour
             if (_charsInTrigger == 1)
             {
                 _animator.SetTrigger(_animatorParam_move);
-                _audioSource.PlayOneShot(_openingSounds[Random.Range(0, _openingSounds.Length)]);
+                //opening door triggers monster
+                _soundCaster.PlayAudio(_openingSounds[Random.Range(0, _openingSounds.Length)], _openingRange);
             }
         }
     }
@@ -43,6 +49,7 @@ public class Door_SlidingAnimation : MonoBehaviour
             if (_charsInTrigger == 0)
             {
                 _animator.SetTrigger(_animatorParam_move);
+                //closing not
                 _audioSource.PlayOneShot(_closingSounds[Random.Range(0, _closingSounds.Length)]);
             }
         }

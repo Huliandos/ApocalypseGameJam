@@ -319,7 +319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minTimeToIdle: 3
   _maxTimeToIdle: 8
-  _maxRangeToStroll: 6
+  _maxRangeToStroll: 10
   _distanceGoalPosReached: 0.4
 --- !u!136 &40076853
 CapsuleCollider:
@@ -618,6 +618,7 @@ GameObject:
   - component: {fileID: 202138382}
   - component: {fileID: 202138381}
   - component: {fileID: 202138387}
+  - component: {fileID: 202138389}
   - component: {fileID: 202138388}
   m_Layer: 0
   m_Name: PhysicsBasedDoor
@@ -766,6 +767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49888727268127d40b137a47579981a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _openingRange: 4
   _doorSounds:
   - {fileID: 8300000, guid: fae4cce885fc9d740b299fb689333f32, type: 3}
   - {fileID: 8300000, guid: 7f953a6b94cb4d446b21c6d9a15d97ed, type: 3}
@@ -869,6 +871,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &202138389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202138380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e022be16b4bf66489ae34200b0f0628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &234985441
 GameObject:
   m_ObjectHideFlags: 0
@@ -4632,10 +4646,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5218705861518652741, guid: ade5edfd2771c15439bf7c40e740aa6f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5218705861518652799, guid: ade5edfd2771c15439bf7c40e740aa6f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4679,18 +4689,6 @@ PrefabInstance:
     - target: {fileID: 5218705861518652799, guid: ade5edfd2771c15439bf7c40e740aa6f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5218705861820488684, guid: ade5edfd2771c15439bf7c40e740aa6f, type: 3}
-      propertyPath: m_ShowToolkit
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5218705861820488684, guid: ade5edfd2771c15439bf7c40e740aa6f, type: 3}
-      propertyPath: m_ShowCustomSorter
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5218705861820488687, guid: ade5edfd2771c15439bf7c40e740aa6f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ade5edfd2771c15439bf7c40e740aa6f, type: 3}

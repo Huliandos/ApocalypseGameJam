@@ -33,7 +33,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField][Tooltip("Randomly selected audio clips for walking sounds")]
     AudioClip[] _slowSteps;
     [SerializeField][Tooltip("Audio source attached as child to player for 3D audio")]
-    AudioSource _footstepAudio;
+    SoundCaster _footstepSoundCaster;
+
+    [Header("Audio casting to monster")]
+    [SerializeField] [Tooltip("So monster can hear player depening on movement action")]
+    float _sprintingAudioRange = 14;
+    [SerializeField][Tooltip("So monster can hear player depening on movement action")]
+    float _walkingAudioRange = 8, _crouchSprintingAudioRange = 2, _crouchingAudioRange = 0;
 
     [Header("Flashlight")]
     [SerializeField]
@@ -159,7 +165,7 @@ public class PlayerController : MonoBehaviour
 
         Vector3 velocity = ClampToMaxSpeed(verticalSpeed,
             new Vector3(_cameraTransform.forward.x, 0, _cameraTransform.forward.z).normalized * verticalSpeed * Input.GetAxis(Inputs.Vertical)
-            + new Vector3(_cameraTransform.right.x, 0, _cameraTransform.right.z).normalized * Input.GetAxis(Inputs.Horizontal));
+            + new Vector3(_cameraTransform.right.x, 0, _cameraTransform.right.z).normalized * _sideSpeed * Input.GetAxis(Inputs.Horizontal));
 
         if (_sprint)
             velocity *= _sprintSpeedModifier;
@@ -187,11 +193,21 @@ public class PlayerController : MonoBehaviour
             {
                 int random = Random.Range(0, _fastSteps.Length);
 
-                if (_sprint)
-                    _footstepAudio.PlayOneShot(_footstepAudio.clip = _fastSteps[random]);
-
+                //the follow if else is done for determining how well the monster can hear the sound
+                if (_crouch)
+                {
+                    if (_sprint)
+                        _footstepSoundCaster.PlayAudio(_fastSteps[random], _crouchSprintingAudioRange);
+                    else
+                        _footstepSoundCaster.PlayAudio(_slowSteps[random], _crouchingAudioRange);
+                }
                 else
-                    _footstepAudio.PlayOneShot(_footstepAudio.clip = _slowSteps[random]);
+                {
+                    if (_sprint)
+                        _footstepSoundCaster.PlayAudio(_fastSteps[random], _sprintingAudioRange);
+                    else
+                        _footstepSoundCaster.PlayAudio(_slowSteps[random], _walkingAudioRange);
+                }
             }
         }
         /*

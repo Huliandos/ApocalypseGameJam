@@ -333,7 +333,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 04d4c4ed7581a0c4db8f5f5663d0a108, type: 3}
   - {fileID: 8300000, guid: ec55476db424a104f866ac65aceeb0a7, type: 3}
   - {fileID: 8300000, guid: 15de0338b2ea01c4488339edbcff495d, type: 3}
-  _footstepAudio: {fileID: 5218705862195921913}
+  _footstepSoundCaster: {fileID: 1835036896}
+  _sprintingAudioRange: 14
+  _walkingAudioRange: 8
+  _crouchSprintingAudioRange: 2
+  _crouchingAudioRange: 0
   _flashlight: {fileID: 5218705861287560475}
   _flashlightOnAudio: {fileID: 8300000, guid: 64e736da16d94764ea44e45023a1e1b3, type: 3}
   _flashlightOffAudio: {fileID: 8300000, guid: fc36cc904ad411a46a4709499d44c893, type: 3}
@@ -557,6 +561,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5218705862195921918}
   - component: {fileID: 5218705862195921913}
+  - component: {fileID: 1835036896}
   m_Layer: 6
   m_Name: FeetAudio
   m_TagString: Untagged
@@ -674,3 +679,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1835036896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5218705862195921912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e022be16b4bf66489ae34200b0f0628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

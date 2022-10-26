@@ -88,9 +88,7 @@ public class CharacterController_Monster : MonoBehaviour
         _myState = AI_States.STROLL_AROUND;
 
         //Generate random pos in circle
-        float radius = _maxRangeToStroll * Mathf.Sqrt(Random.Range(0f, 1));
-        float theta = Random.Range(0f, 1) * 2 * Mathf.PI;
-        Vector3 position = new Vector3(radius * Mathf.Cos(theta), 0, radius * Mathf.Sin(theta));
+        Vector3 position = MathFunctions.RandomPositionInCircle(transform.position, _maxRangeToStroll);
 
         GotoPosition(position);
     }
@@ -99,7 +97,6 @@ public class CharacterController_Monster : MonoBehaviour
     {
         NavMeshHit hit;
         NavMesh.SamplePosition(position, out hit, Mathf.Infinity, NavMesh.AllAreas);
-        Debug.Log("Going to: " + hit.position);
         _goalPos = hit.position;
         _agent.SetDestination(hit.position);
     }

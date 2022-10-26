@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5734674893002911184}
   - component: {fileID: 5734674893003141623}
   - component: {fileID: 5734674893003141578}
+  - component: {fileID: 5039981262203941504}
   - component: {fileID: 5734674893003141577}
   m_Layer: 0
   m_Name: DoorDouble_Sliding_Brown
@@ -63,7 +64,20 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7affc9549af641547b8c1e39ee7d3beb, type: 3}
   _closingSounds:
   - {fileID: 8300000, guid: 96cda6da069b4db40b54b8d8c32cc5f1, type: 3}
+  _openingRange: 8
   _animator: {fileID: 5734674893003141617}
+--- !u!114 &5039981262203941504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5734674893003141616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e022be16b4bf66489ae34200b0f0628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &5734674893003141577
 AudioSource:
   m_ObjectHideFlags: 0

@@ -10,7 +10,8 @@ public class Door_HingeAnimation : Door
     bool _animationPlaying = false;
 
     Animator _animator;
-    
+
+
     const string _animatorParam_move = "Move";
     const string _animatorParam_mirror = "Mirror";
 
@@ -20,7 +21,7 @@ public class Door_HingeAnimation : Door
 
     private void Start()
     {
-        _audioSource = GetComponent<AudioSource>();
+        _soundCaster = GetComponent<SoundCaster>();
         _animator = GetComponent<Animator>();
 
         _animator.SetBool(_animatorParam_mirror, _mirror);

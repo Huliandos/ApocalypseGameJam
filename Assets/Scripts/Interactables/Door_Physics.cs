@@ -11,7 +11,7 @@ public class Door_Physics : Door
 
     private void Start()
     {
-        _audioSource = GetComponent<AudioSource>();
+        _soundCaster = GetComponent<SoundCaster>();
         _rb = GetComponent<Rigidbody>();
     }
 
