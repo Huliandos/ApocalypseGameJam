@@ -60,9 +60,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _openingSounds:
-  - {fileID: 8300000, guid: fae4cce885fc9d740b299fb689333f32, type: 3}
+  - {fileID: 8300000, guid: 7affc9549af641547b8c1e39ee7d3beb, type: 3}
   _closingSounds:
-  - {fileID: 8300000, guid: 98a04a5011d3e3e40829fdf3f0ccaf0e, type: 3}
+  - {fileID: 8300000, guid: 96cda6da069b4db40b54b8d8c32cc5f1, type: 3}
   _animator: {fileID: 5734674893003141617}
 --- !u!82 &5734674893003141577
 AudioSource:
