@@ -8,6 +8,7 @@ public class CharacterController_Monster : MonoBehaviour
     //ToDo: Add screaming sometimes when hearing a sound before running towards it
     AnimationController_Monster _animationController;
     NavMeshAgent _agent;
+    GameController _gameController;
 
     enum AI_States { LISTEN, STROLL_AROUND, CHASE, KILL };
     AI_States _myState = AI_States.LISTEN;
@@ -19,8 +20,6 @@ public class CharacterController_Monster : MonoBehaviour
     [Tooltip("Sets range for strolling in Unity units")]
     float _maxRangeToStroll = 10;
 
-    bool _waitingForIdleToFinish = false;
-
     //For strolling and chasing
     [SerializeField]
     float _distanceGoalPosReached = .4f;
@@ -31,24 +30,26 @@ public class CharacterController_Monster : MonoBehaviour
     {
         _animationController = GetComponent<AnimationController_Monster>();
         _agent = GetComponent<NavMeshAgent>();
+        _gameController = FindObjectOfType<GameController>();
     }
 
     // Update is called once per frame
     void Update()
     {
         switch (_myState) {
-            //can be optimized here, we don't need this state currently, as its just being called once
             case AI_States.LISTEN:
-                if (!_waitingForIdleToFinish)
-                    StartCoroutine(IdleTimeInRange());
+                //Do nothing on update
                 break;
             case AI_States.STROLL_AROUND:
             case AI_States.CHASE:
                 if (GoalReached())
+                {
                     _myState = AI_States.LISTEN;
+                    StartCoroutine(IdleTimeInRange());
+                }
                 break;
             case AI_States.KILL:
-                //ToDo: Create Kill animation. Initiate it here
+                //Do nothing on update
                 break;
         }
     }
@@ -64,7 +65,6 @@ public class CharacterController_Monster : MonoBehaviour
 
         //stop switch to strolling behaviour
         StopAllCoroutines();
-        _waitingForIdleToFinish = false;
 
         //Set AI state for FSM
         _myState = AI_States.CHASE;
@@ -76,9 +76,7 @@ public class CharacterController_Monster : MonoBehaviour
     }
 
     IEnumerator IdleTimeInRange() {
-        _waitingForIdleToFinish = true;
         yield return new WaitForSeconds(Random.Range(_minTimeToIdle, _maxTimeToIdle));
-        _waitingForIdleToFinish = false;
         StrollToRandomPosition();
     }
 
@@ -107,14 +105,20 @@ public class CharacterController_Monster : MonoBehaviour
         return false;
     }
 
+    void InitiatePlayerDeath()
+    {
+        //Let the agent stop
+        _agent.SetDestination(transform.position);
+        _myState = AI_States.KILL;
+        _gameController.StartCoroutine(_gameController.DeathAnimation());
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         //if the monster touches the player, then it also initiates its killing blow
         if (collision.gameObject.tag == Tags.Player)
         {
-            //Let the agent stop
-            _agent.SetDestination(transform.position);
-            _myState = AI_States.KILL;
+            InitiatePlayerDeath();
         }
     }
 
@@ -124,9 +128,7 @@ public class CharacterController_Monster : MonoBehaviour
         //ToDo: May have to add a flag here when the monster knows it's chasing the player
         if (_myState == AI_States.CHASE && other.tag == Tags.Player)
         {
-            //Let the agent stop
-            _agent.SetDestination(transform.position);
-            _myState = AI_States.KILL;
+            InitiatePlayerDeath();
         }
     }
 }
