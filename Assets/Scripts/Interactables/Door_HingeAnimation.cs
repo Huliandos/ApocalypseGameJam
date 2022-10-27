@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Door_HingeAnimation : Door
 {
+    [Header("Animation vars")]
     [SerializeField][Tooltip("Should animation be mirrored?")]
     bool _mirror = false;
     bool _opened = false;
@@ -29,20 +30,26 @@ public class Door_HingeAnimation : Door
 
     public override void Interact(GameObject interacter)
     {
-        //can't interact with door again, while its animation is playing
-        if (_animationPlaying)
+        if (!_doorIsLocked)
+        {
+            //can't interact with door again, while its animation is playing
+            if (_animationPlaying)
+                return;
+
+            //start animation trough trigger
+            _animator.SetTrigger(_animatorParam_move);
+
+            PlayRandomAudioClip();
+
+            _animationPlaying = true;
+            //reverse opening state
+            _opened = !_opened;
+
+            StartCoroutine(WaitForAnimationToFinish());
+            
             return;
-
-        //start animation trough trigger
-        _animator.SetTrigger(_animatorParam_move);
-
-        PlayRandomAudioClip();
-
-        _animationPlaying = true;
-        //reverse opening state
-        _opened = !_opened;
-
-        StartCoroutine(WaitForAnimationToFinish());
+        }
+        //ToDo: Play keycard doesn't work soundclip here
     }
 
     IEnumerator WaitForAnimationToFinish()

@@ -24,6 +24,10 @@ public class SoundCaster : MonoBehaviour
     public void PlayAudio(AudioClip clip, float range) {
         _audioSource.PlayOneShot(clip);
 
+        //only if the monster is actually spawned
+        if (!_monster.gameObject.activeSelf)
+            return;
+
         float distanceToMonster = (_monster.transform.position - transform.position).magnitude;
 
         //monster is in hearing range
@@ -31,6 +35,7 @@ public class SoundCaster : MonoBehaviour
         {
             //send the monster to a random position within a circle that gets bigger the further away this sound is from the monster
             float scale = _minPrecisionAtMaxRange / range;
+
             _monster.HearAudio(MathFunctions.RandomPositionInCircle(transform.position, distanceToMonster * scale));
         }
     }

@@ -2,15 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door_SlidingAnimation : MonoBehaviour
+public class Door_SlidingAnimation : Door
 {
     [SerializeField]
     AudioClip[] _openingSounds, _closingSounds;
-    SoundCaster _soundCaster;
     AudioSource _audioSource;
-
-    [SerializeField]
-    float _openingRange = 8;
 
     int _charsInTrigger = 0;
 
@@ -28,6 +24,12 @@ public class Door_SlidingAnimation : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == Tags.Player || other.tag == Tags.Enemy) {
+            if (_doorIsLocked)
+            {
+                //ToDo: Play keycard doesn't work soundclip here
+                return;
+            }
+
             _charsInTrigger++;
 
             //only if a character trigger and no other is in it play anim
@@ -44,6 +46,9 @@ public class Door_SlidingAnimation : MonoBehaviour
     {
         if (other.tag == Tags.Player || other.tag == Tags.Enemy)
         {
+            if (_doorIsLocked)
+                return;
+
             _charsInTrigger--;
 
             if (_charsInTrigger == 0)
@@ -53,5 +58,10 @@ public class Door_SlidingAnimation : MonoBehaviour
                 _audioSource.PlayOneShot(_closingSounds[Random.Range(0, _closingSounds.Length)]);
             }
         }
+    }
+
+    public override void Interact(GameObject interacter)
+    {
+        //doesn't do anything for sliding doors
     }
 }
