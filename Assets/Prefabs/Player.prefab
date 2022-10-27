@@ -357,8 +357,6 @@ GameObject:
   - component: {fileID: 5218705861820488684}
   - component: {fileID: 5218705861820488687}
   - component: {fileID: 5218705861820488685}
-  - component: {fileID: 5218705861820488674}
-  - component: {fileID: 5218705861820488675}
   m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -522,35 +520,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5, z: 1.2}
   m_Center: {x: 0, y: 0, z: 0.6}
---- !u!54 &5218705861820488674
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5218705861820488683}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
---- !u!114 &5218705861820488675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5218705861820488683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cd46b3b239214445902e55f102a390b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _behaviourToSendTo: {fileID: 5218705861518652794}
 --- !u!1 &5218705862195921912
 GameObject:
   m_ObjectHideFlags: 0

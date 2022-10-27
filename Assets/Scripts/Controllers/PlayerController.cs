@@ -238,9 +238,10 @@ public class PlayerController : MonoBehaviour
         _cameraTransform.localPosition = new Vector3(_cameraTransform.localPosition.x, _cameraTransform.localPosition.y + _camMoveYNextFUpdate, _cameraTransform.localPosition.z);
     }
 
-    public void OnTriggerEnterFromChild(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == Tags.Interactable) {
+        if (other.tag == Tags.Interactable)
+        {
             other.GetComponent<Interactables>().Interact(gameObject);
         }
     }
