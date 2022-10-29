@@ -5480,7 +5480,31 @@ PrefabInstance:
       value: -17.403818
       objectReference: {fileID: 0}
     - target: {fileID: 8397234916733625781, guid: 5b8d2d29891dd964ab65b8edd58ca015, type: 3}
-      propertyPath: _maxTimeToIdle
+      propertyPath: _idleSounds.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397234916733625781, guid: 5b8d2d29891dd964ab65b8edd58ca015, type: 3}
+      propertyPath: _idleSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: a2349f07630fb064f9fa3790151f12f5, type: 3}
+    - target: {fileID: 8397234916733625781, guid: 5b8d2d29891dd964ab65b8edd58ca015, type: 3}
+      propertyPath: _idleSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1407e37b51be0ae4f8ea4955658bd32f, type: 3}
+    - target: {fileID: 8397234916733625781, guid: 5b8d2d29891dd964ab65b8edd58ca015, type: 3}
+      propertyPath: _idleSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: a4c9c3503b493274da4cfd7a413c0411, type: 3}
+    - target: {fileID: 8397234916733625781, guid: 5b8d2d29891dd964ab65b8edd58ca015, type: 3}
+      propertyPath: _idleSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5f28d9858e89c414780792615f2ec218, type: 3}
+    - target: {fileID: 8397234916733625781, guid: 5b8d2d29891dd964ab65b8edd58ca015, type: 3}
+      propertyPath: _maxTimeBetweenIdleSounds
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397234916733625781, guid: 5b8d2d29891dd964ab65b8edd58ca015, type: 3}
+      propertyPath: _minTimeBetweenIdleSounds
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8642289047427508060, guid: 5b8d2d29891dd964ab65b8edd58ca015, type: 3}

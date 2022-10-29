@@ -16,6 +16,7 @@ public class CharacterController_Monster : MonoBehaviour
     [SerializeField][Tooltip("Sets range for idle time in seconds")]
     float _minTimeToIdle = 3, _maxTimeToIdle = 5;
 
+
     [SerializeField]
     [Tooltip("Sets range for strolling in Unity units")]
     float _maxRangeToStroll = 10;
@@ -25,7 +26,17 @@ public class CharacterController_Monster : MonoBehaviour
     float _distanceGoalPosReached = .4f;
     Vector3 _goalPos;
 
-    [Header("Footstep audio")]
+    [Header("Audio")]
+    [SerializeField]
+    [Tooltip("Randomly selected audio clips for idle sounds")]
+    AudioClip[] _idleSounds;
+
+    [SerializeField]
+    [Tooltip("Sets range for making idle sounds")]
+    float _minTimeBetweenIdleSounds = 2, _maxTimeBetweenIdleSounds = 6;
+
+    Coroutine _makeRandomSoundRoutine;
+
     [SerializeField]
     [Tooltip("Randomly selected audio clips for step sounds")]
     AudioClip[] _steps;
@@ -68,6 +79,8 @@ public class CharacterController_Monster : MonoBehaviour
     {
         _myState = AI_States.LISTEN;
         StartCoroutine(IdleTimeInRange());
+        if(_makeRandomSoundRoutine == null)
+            _makeRandomSoundRoutine = StartCoroutine(MakeRandomSound());
     }
 
     public void HearAudio(Vector3 position) {
@@ -79,8 +92,10 @@ public class CharacterController_Monster : MonoBehaviour
         if ((_goalPos - position).magnitude <= _distanceGoalPosReached)
             return;
 
+        Debug.Log("Stopping coroutine");
         //stop switch to strolling behaviour
         StopAllCoroutines();
+        _makeRandomSoundRoutine = null;
 
         //Set AI state for FSM
         _myState = AI_States.CHASE;
@@ -95,6 +110,16 @@ public class CharacterController_Monster : MonoBehaviour
     {
         yield return new WaitForSeconds(Random.Range(_minTimeToIdle, _maxTimeToIdle));
         StrollToRandomPosition();
+    }
+
+    IEnumerator MakeRandomSound()
+    {
+        Debug.Log("Starting coroutine");
+        while (true)
+        {
+            yield return new WaitForSeconds(Random.Range(_minTimeBetweenIdleSounds, _maxTimeBetweenIdleSounds));
+            _audioSource.PlayOneShot(_idleSounds[Random.Range(0, _idleSounds.Length)], .6f);
+        }
     }
 
     void StrollToRandomPosition()
