@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3323068}
   - component: {fileID: 2362702}
   - component: {fileID: 6434124}
+  - component: {fileID: 4835356089266974461}
   m_Layer: 0
   m_Name: Corridor_Connector_1D_Closed
   m_TagString: Untagged
@@ -98,3 +99,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300006, guid: e63dd9175d8b1954cafd0679808bb39c, type: 3}
+--- !u!65 &4835356089266974461
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120720}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.255655, y: 5.3305864, z: 0.6000041}
+  m_Center: {x: 0, y: -0.14304364, z: 0.00000017881393}
