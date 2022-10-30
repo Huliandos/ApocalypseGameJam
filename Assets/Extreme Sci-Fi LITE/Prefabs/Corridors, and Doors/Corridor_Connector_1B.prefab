@@ -11,13 +11,14 @@ GameObject:
   - component: {fileID: 473830}
   - component: {fileID: 3360222}
   - component: {fileID: 2339584}
-  - component: {fileID: 6477712}
+  - component: {fileID: 1116961413}
+  - component: {fileID: 1116961412}
   m_Layer: 0
   m_Name: Corridor_Connector_1B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &473830
 Transform:
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 148842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.43, y: 2.46, z: -2.35}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.68555, y: 1.27694, z: 1.1237}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6477712
-MeshCollider:
+--- !u!65 &1116961413
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,7 +95,19 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300014, guid: e63dd9175d8b1954cafd0679808bb39c, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 2.1990647, y: 5.3305864, z: 0.5000051}
+  m_Center: {x: -3.0282953, y: 0.07633525, z: -0.0000001060864}
+--- !u!65 &1116961412
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148842}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1990647, y: 5.3305864, z: 0.5000051}
+  m_Center: {x: 3.028295, y: 0.07633525, z: -0.0000001060864}
