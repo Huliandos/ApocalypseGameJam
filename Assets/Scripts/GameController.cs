@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -8,6 +7,8 @@ public class GameController : MonoBehaviour
 
     [SerializeField]
     GameObject _gameOverCanvas;
+
+    AudioSource _audioSource;
 
     PlayerController _player;
     CharacterController_Monster _monster;
@@ -21,6 +22,8 @@ public class GameController : MonoBehaviour
     {
         _player = FindObjectOfType<PlayerController>();
         _monster = FindObjectOfType<CharacterController_Monster>(true);
+
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -155,5 +158,25 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(.4f);
 
         _gameOverCanvas.SetActive(true);
+    }
+
+
+    /// <summary>
+    /// Doesn't stop other clips from playing
+    /// </summary>
+    /// <param name="clip"></param>
+    public void PlayGlobalOneshotAudio(AudioClip clip) {
+        _audioSource.PlayOneShot(clip);
+    }
+
+    /// <summary>
+    /// Stops other audio clips from playing
+    /// </summary>
+    /// <param name="clip"></param>
+    public void PlayGlobalAudio(AudioClip clip)
+    {
+        _audioSource.Stop();
+        _audioSource.clip = clip;
+        _audioSource.Play();
     }
 }
