@@ -1,13 +1,16 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    enum Game_States { INTRO, TUTORIAL, GAMEPLAY, DEATH, ENDING };
+    enum GameStates { INTRO, TUTORIAL, GAMEPLAY, DEATH, ENDING };
+    GameStates _myGameState = GameStates.INTRO;
 
     [SerializeField]
     GameObject _gameOverCanvas;
+
+    AudioSource _audioSource;
 
     PlayerController _player;
     CharacterController_Monster _monster;
@@ -21,12 +24,23 @@ public class GameController : MonoBehaviour
     {
         _player = FindObjectOfType<PlayerController>();
         _monster = FindObjectOfType<CharacterController_Monster>(true);
+
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        switch (_myGameState) {
+            //allow restarting or quitting the game here
+            case GameStates.ENDING:
+                if (Input.GetKeyDown(KeyCode.R))
+                    //ToDo: Change to the correct scene here
+                    SceneManager.LoadScene(0);
+                if (Input.GetKeyDown(KeyCode.Escape))
+                    Application.Quit();
+                break;
+        }
     }
 
     //ToDo: This is very jank rn, but maybe just enough for the game jam
@@ -155,5 +169,27 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(.4f);
 
         _gameOverCanvas.SetActive(true);
+
+        _myGameState = GameStates.ENDING;
+    }
+
+
+    /// <summary>
+    /// Doesn't stop other clips from playing
+    /// </summary>
+    /// <param name="clip"></param>
+    public void PlayGlobalOneshotAudio(AudioClip clip) {
+        _audioSource.PlayOneShot(clip);
+    }
+
+    /// <summary>
+    /// Stops other audio clips from playing
+    /// </summary>
+    /// <param name="clip"></param>
+    public void PlayGlobalAudio(AudioClip clip)
+    {
+        _audioSource.Stop();
+        _audioSource.clip = clip;
+        _audioSource.Play();
     }
 }

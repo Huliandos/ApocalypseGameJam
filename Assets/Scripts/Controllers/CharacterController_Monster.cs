@@ -14,7 +14,8 @@ public class CharacterController_Monster : MonoBehaviour
     AI_States _myState = AI_States.LISTEN;
 
     [SerializeField][Tooltip("Sets range for idle time in seconds")]
-    float _minTimeToIdle = 3, _maxTimeToIdle = 8;
+    float _minTimeToIdle = 3, _maxTimeToIdle = 5;
+
 
     [SerializeField]
     [Tooltip("Sets range for strolling in Unity units")]
@@ -25,12 +26,33 @@ public class CharacterController_Monster : MonoBehaviour
     float _distanceGoalPosReached = .4f;
     Vector3 _goalPos;
 
+    [Header("Audio")]
+    [SerializeField]
+    [Tooltip("Randomly selected audio clips for idle sounds")]
+    AudioClip[] _idleSounds;
+
+    [SerializeField]
+    [Tooltip("Sets range for making idle sounds")]
+    float _minTimeBetweenIdleSounds = 2, _maxTimeBetweenIdleSounds = 6;
+
+    Coroutine _makeRandomSoundRoutine;
+
+    [SerializeField]
+    [Tooltip("Randomly selected audio clips for step sounds")]
+    AudioClip[] _steps;
+
+    AudioSource _audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         _animationController = GetComponent<AnimationController_Monster>();
         _agent = GetComponent<NavMeshAgent>();
+        _audioSource = GetComponent<AudioSource>();
+
         _gameController = FindObjectOfType<GameController>();
+
+        SwapToListen();
     }
 
     // Update is called once per frame
@@ -44,14 +66,21 @@ public class CharacterController_Monster : MonoBehaviour
             case AI_States.CHASE:
                 if (GoalReached())
                 {
-                    _myState = AI_States.LISTEN;
-                    StartCoroutine(IdleTimeInRange());
+                    SwapToListen();
                 }
                 break;
             case AI_States.KILL:
                 //Do nothing on update
                 break;
         }
+    }
+
+    void SwapToListen()
+    {
+        _myState = AI_States.LISTEN;
+        StartCoroutine(IdleTimeInRange());
+        if(_makeRandomSoundRoutine == null)
+            _makeRandomSoundRoutine = StartCoroutine(MakeRandomSound());
     }
 
     public void HearAudio(Vector3 position) {
@@ -63,8 +92,10 @@ public class CharacterController_Monster : MonoBehaviour
         if ((_goalPos - position).magnitude <= _distanceGoalPosReached)
             return;
 
+        Debug.Log("Stopping coroutine");
         //stop switch to strolling behaviour
         StopAllCoroutines();
+        _makeRandomSoundRoutine = null;
 
         //Set AI state for FSM
         _myState = AI_States.CHASE;
@@ -75,9 +106,20 @@ public class CharacterController_Monster : MonoBehaviour
         GotoPosition(position);
     }
 
-    IEnumerator IdleTimeInRange() {
+    IEnumerator IdleTimeInRange()
+    {
         yield return new WaitForSeconds(Random.Range(_minTimeToIdle, _maxTimeToIdle));
         StrollToRandomPosition();
+    }
+
+    IEnumerator MakeRandomSound()
+    {
+        Debug.Log("Starting coroutine");
+        while (true)
+        {
+            yield return new WaitForSeconds(Random.Range(_minTimeBetweenIdleSounds, _maxTimeBetweenIdleSounds));
+            _audioSource.PlayOneShot(_idleSounds[Random.Range(0, _idleSounds.Length)], .6f);
+        }
     }
 
     void StrollToRandomPosition()
@@ -131,4 +173,14 @@ public class CharacterController_Monster : MonoBehaviour
             InitiatePlayerDeath();
         }
     }
+
+    #region utility
+    /// <summary>
+    /// called by animation
+    /// </summary>
+    public void PlayRandomFootstepAudio() {
+        _audioSource.PlayOneShot(_steps[Random.Range(0, _steps.Length)]);
+    }
+
+    #endregion
 }
