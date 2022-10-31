@@ -6,6 +6,9 @@ public class Door_SlidingAnimation : Door
 {
     [SerializeField]
     AudioClip[] _openingSounds, _closingSounds;
+    [SerializeField]
+    AudioClip _doorLockedSound;
+
     AudioSource _audioSource;
 
     int _charsInTrigger = 0;
@@ -26,7 +29,8 @@ public class Door_SlidingAnimation : Door
         if (other.tag == Tags.Player || other.tag == Tags.Enemy) {
             if (_doorIsLocked)
             {
-                //ToDo: Play keycard doesn't work soundclip here
+                _audioSource.PlayOneShot(_doorLockedSound);
+
                 return;
             }
 

@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 2359520}
   - component: {fileID: 3630380036849747686}
   - component: {fileID: 999950202622794314}
+  - component: {fileID: 1395334763735972679}
+  - component: {fileID: 2788346882467617236}
   m_Layer: 0
   m_Name: Corridor_2B_Window
   m_TagString: Untagged
@@ -113,6 +115,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.160591, y: 4.8880887, z: 0.50546646}
   m_Center: {x: -3.2901945, y: 0.25579673, z: 3.85402}
+--- !u!65 &1395334763735972679
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180904}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.85, y: 5.330587, z: 8.270604}
+  m_Center: {x: 3.675, y: 0.034547802, z: -0.00000047683713}
+--- !u!65 &2788346882467617236
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180904}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.85, y: 5.330587, z: 8.270604}
+  m_Center: {x: -3.675, y: 0.034547802, z: -0.00000047683713}
 --- !u!1 &2150084647155394430
 GameObject:
   m_ObjectHideFlags: 0

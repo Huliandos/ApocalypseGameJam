@@ -7,6 +7,9 @@ public class Keycard : Interactables
     [SerializeField]
     Door[] _doorsBoundToKeycard;
 
+    [SerializeField][Tooltip("Used for activating a monster spawn zone in the office")]
+    GameObject[] _gosToSetActiveAfterCollection;
+
     GameController _gameController;
 
     [SerializeField]
@@ -28,6 +31,9 @@ public class Keycard : Interactables
 
         foreach (Door door in _doorsBoundToKeycard)
             door.UnlockDoor();
+
+        foreach (GameObject go in _gosToSetActiveAfterCollection)
+            go.SetActive(true);
 
         Destroy(gameObject);
     }

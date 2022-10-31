@@ -41,8 +41,6 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            VictoryAnimation();
         switch (_myGameState) {
             //allow restarting or quitting the game here
             case GameStates.ENDING:

@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _throwingForce: 450
-  _hitClip: {fileID: 8300000, guid: aa4ea80b241b2e246b7813044ea5a92f, type: 3}
+  _hitClip: {fileID: 8300000, guid: 7d97188cc0e43ef4d8a5d31a0b5ff55a, type: 3}
   _range: 4
 --- !u!114 &5447470663268181176
 MonoBehaviour:
