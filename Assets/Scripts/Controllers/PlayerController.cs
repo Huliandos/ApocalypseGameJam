@@ -193,9 +193,6 @@ public class PlayerController : MonoBehaviour
             {
                 int random = Random.Range(0, _fastSteps.Length);
 
-                Debug.Log(_footstepSoundCaster);
-                Debug.Log(_fastSteps.Length);
-                Debug.Log(_slowSteps.Length);
                 //the follow if else is done for determining how well the monster can hear the sound
                 if (_crouch)
                 {

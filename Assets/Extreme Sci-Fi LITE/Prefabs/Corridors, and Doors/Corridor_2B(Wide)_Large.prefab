@@ -11,15 +11,14 @@ GameObject:
   - component: {fileID: 464786}
   - component: {fileID: 3342686}
   - component: {fileID: 2381928}
-  - component: {fileID: 6418024}
-  - component: {fileID: 8684692819095029190}
-  - component: {fileID: 5046554056747185406}
+  - component: {fileID: 1729426130624748874}
+  - component: {fileID: 7433994693067146949}
   m_Layer: 0
   m_Name: Corridor_2B(Wide)_Large
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &464786
 Transform:
@@ -33,8 +32,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5763242265275379126}
-  - {fileID: 6193388773995761460}
+  - {fileID: 6203247445026240517}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -88,21 +86,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6418024
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107992}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300008, guid: 7649011e69153af429fdde502dc90940, type: 3}
---- !u!65 &8684692819095029190
+--- !u!65 &1729426130624748874
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -113,9 +97,9 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 14, y: 1, z: 16.530605}
-  m_Center: {x: 0, y: -5, z: 0}
---- !u!65 &5046554056747185406
+  m_Size: {x: 1.0284472, y: 10.656718, z: 16.530605}
+  m_Center: {x: -6.353604, y: 0.00000048617164, z: 0}
+--- !u!65 &7433994693067146949
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,9 +110,9 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 14, y: 1, z: 16.530605}
-  m_Center: {x: 0, y: 5, z: 0}
---- !u!1 &5338033947066271892
+  m_Size: {x: 1.0284472, y: 10.656718, z: 16.530605}
+  m_Center: {x: 6.353604, y: 0.00000048617164, z: 0}
+--- !u!1 &9100395337231844094
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,77 +120,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6193388773995761460}
-  - component: {fileID: 5449067647031268328}
-  - component: {fileID: 6724268432510124914}
-  m_Layer: 7
-  m_Name: Floor (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6193388773995761460
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5338033947066271892}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.38, y: 0.08, z: -0.02}
-  m_LocalScale: {x: 1, y: 10.109708, z: 16.393534}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 464786}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5449067647031268328
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5338033947066271892}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &6724268432510124914
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5338033947066271892}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &7414727767655145836
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5763242265275379126}
-  - component: {fileID: 9065435677026987875}
-  - component: {fileID: 4109294485875069723}
+  - component: {fileID: 6203247445026240517}
+  - component: {fileID: 8684157411625646715}
+  - component: {fileID: 8620403117600628843}
   m_Layer: 7
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
---- !u!4 &5763242265275379126
+--- !u!4 &6203247445026240517
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7414727767655145836}
+  m_GameObject: {fileID: 9100395337231844094}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -6.4900002, y: 0.08, z: -0.02}
   m_LocalScale: {x: 1, y: 10.109708, z: 16.393534}
@@ -215,24 +145,24 @@ Transform:
   m_Father: {fileID: 464786}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &9065435677026987875
+--- !u!33 &8684157411625646715
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7414727767655145836}
+  m_GameObject: {fileID: 9100395337231844094}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &4109294485875069723
+--- !u!65 &8620403117600628843
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7414727767655145836}
+  m_GameObject: {fileID: 9100395337231844094}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 13.913076, y: 0.083746865, z: 1.0079092}
+  m_Center: {x: 6.456538, y: -0.49735755, z: 0.0009884894}

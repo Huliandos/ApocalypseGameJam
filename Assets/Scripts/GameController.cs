@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    AudioClip _tutorialSound;
+
     enum GameStates { INTRO, TUTORIAL, GAMEPLAY, DEATH, ENDING };
     GameStates _myGameState = GameStates.INTRO;
 
@@ -26,6 +28,8 @@ public class GameController : MonoBehaviour
         _monster = FindObjectOfType<CharacterController_Monster>(true);
 
         _audioSource = GetComponent<AudioSource>();
+
+        PlayGlobalAudio(_tutorialSound);
     }
 
     // Update is called once per frame
