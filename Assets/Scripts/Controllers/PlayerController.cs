@@ -143,11 +143,16 @@ public class PlayerController : MonoBehaviour
         {
             _flashlightOn = !_flashlightOn;
             _flashlight.enabled = _flashlightOn;
-
+            _flashlight.GetComponent<FlashlightTriggerMonster>().enabled = _flashlightOn;
             if (_flashlightOn)
+            {
                 _flashlightAudioSource.PlayOneShot(_flashlightOnAudio);
+
+            }
             else
+            {
                 _flashlightAudioSource.PlayOneShot(_flashlightOffAudio);
+            }
         }
 
         //camera movement for first person view

@@ -78,6 +78,9 @@ public class GameController : MonoBehaviour
         #region turn player towards monster
         //turn player towards monster
         float t = 0;
+        Vector3 playerStartPosition = Camera.main.transform.position;
+        Vector3 playerGoalPosition = new Vector3(playerStartPosition.x, 1.5f, playerStartPosition.z);
+
         Quaternion playerStartRotation = Camera.main.transform.rotation;
         Vector3 playerMonsterSameHeight = new Vector3(Camera.main.transform.position.x, _monster.transform.position.y, Camera.main.transform.position.z);
         Quaternion playerGoalRotation = Quaternion.LookRotation(_monster.transform.position - playerMonsterSameHeight);
@@ -87,7 +90,9 @@ public class GameController : MonoBehaviour
 
         float perFrameDistance = 5;
 
-        while (t < 1) {
+        while (t < 1)
+        {
+            Camera.main.transform.position = Vector3.Lerp(playerStartPosition, playerGoalPosition, t);
             Camera.main.transform.rotation = Quaternion.Lerp(playerStartRotation, playerGoalRotation, t);
 
             _monster.transform.rotation = Quaternion.Lerp(monsterStartRotation, monsterGoalRotation, t);
@@ -113,8 +118,8 @@ public class GameController : MonoBehaviour
 
         perFrameDistance = 4;
         t = 0;
-        Vector3 playerStartPosition = Camera.main.transform.position;
-        Vector3 playerGoalPosition = new Vector3(playerStartPosition.x, .25f, playerStartPosition.z);
+        playerStartPosition = Camera.main.transform.position;
+        playerGoalPosition = new Vector3(playerStartPosition.x, .25f, playerStartPosition.z);
 
         playerStartRotation = Camera.main.transform.rotation;
         playerGoalRotation = Quaternion.Euler(45, Camera.main.transform.eulerAngles.y, Camera.main.transform.eulerAngles.z);
@@ -139,7 +144,7 @@ public class GameController : MonoBehaviour
         playerStartRotation = Camera.main.transform.rotation;
         playerGoalRotation = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, Camera.main.transform.eulerAngles.z);
 
-        perFrameDistance = 3;
+        perFrameDistance = 6;
 
         while (t < 1)
         {
