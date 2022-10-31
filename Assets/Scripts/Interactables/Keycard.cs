@@ -22,7 +22,8 @@ public class Keycard : Interactables
 
     public override void Interact(GameObject interacter)
     {
-        _gameController.PlayGlobalOneshotAudio(_keycardPickupSound);
+        if(_gameController)
+            _gameController.PlayGlobalOneshotAudio(_keycardPickupSound);
 
         //play audio log attached to this keycard, if an audio log is attached to it
         if (_audioLogSound != null) {

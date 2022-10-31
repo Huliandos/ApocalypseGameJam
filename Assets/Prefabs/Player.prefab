@@ -355,7 +355,7 @@ MonoBehaviour:
   _walkingAudioRange: 12
   _crouchSprintingAudioRange: 4
   _crouchingAudioRange: 1
-  _flashlight: {fileID: 5218705861287560677}
+  _flashlight: {fileID: 5218705861287560475}
   _flashlightOnAudio: {fileID: 8300000, guid: 64e736da16d94764ea44e45023a1e1b3, type: 3}
   _flashlightOffAudio: {fileID: 8300000, guid: fc36cc904ad411a46a4709499d44c893, type: 3}
   _cameraTransform: {fileID: 5218705861820488686}
