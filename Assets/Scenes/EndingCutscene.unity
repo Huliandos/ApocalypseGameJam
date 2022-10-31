@@ -247,6 +247,8 @@ GameObject:
   - component: {fileID: 187592497}
   - component: {fileID: 187592501}
   - component: {fileID: 187592502}
+  - component: {fileID: 187592504}
+  - component: {fileID: 187592503}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -346,7 +348,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187592496}
-  m_LocalRotation: {x: -0.011189894, y: 0.98383737, z: 0.06634155, w: 0.16594478}
+  m_LocalRotation: {x: -0.011189892, y: 0.98383737, z: 0.066341564, w: 0.16594474}
   m_LocalPosition: {x: 451.23447, y: 25.303558, z: 462.07703}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -364,11 +366,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e009a152616d2094d9c7e211f445656e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 83c662bbb2ace5d4781de084bd9df80d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -464,7 +466,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.587
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -546,6 +548,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &187592503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187592496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2fe5546f775c47d2820aa5e8a715f53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
+    _objectReferences:
+    - {fileID: 11400000, guid: 6bffeff6895e24b40804e23edefdb50c, type: 2}
+--- !u!114 &187592504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187592496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e741851cba3ad425c91ecf922cc6b379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"declarations":{"Kind":"Object","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
+    _objectReferences: []
 --- !u!4 &215364456 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400012, guid: 070009faafbe3584c9c511141d051fd9, type: 3}
@@ -1735,7 +1768,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 960660902}
-  m_LocalRotation: {x: -0.011189894, y: 0.98383737, z: 0.06634155, w: 0.16594478}
+  m_LocalRotation: {x: -0.011189892, y: 0.98383737, z: 0.066341564, w: 0.16594474}
   m_LocalPosition: {x: 451.23447, y: 25.303558, z: 462.07703}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2722,7 +2755,7 @@ MonoBehaviour:
   m_Path: {fileID: 2099731934}
   m_UpdateMethod: 0
   m_PositionUnits: 1
-  m_Speed: 8
+  m_Speed: 12
   m_Position: 0
 --- !u!4 &1585159725
 Transform:
@@ -2878,10 +2911,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Voice Acting\nLangston Key................................Dr. Hector Shaw\nMichael
-    Eaton..............................Mission Reporter\nJada Ashely Buckmyre............................Dr.
-    Kyana\nGabriel Smith.....................................Monster SFX\nMelanie
-    Smith....................................Monster SFX
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2908,8 +2938,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 47
+  m_fontSizeBase: 47
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2944,7 +2974,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -414.76965, y: -218.93219, z: -436.4995, w: -314.05118}
+  m_margin: {x: -451.43225, y: -280.07654, z: -472.0603, w: -374.07935}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
