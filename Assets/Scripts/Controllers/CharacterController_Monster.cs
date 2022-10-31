@@ -44,7 +44,7 @@ public class CharacterController_Monster : MonoBehaviour
     AudioSource _audioSource;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _animationController = GetComponent<AnimationController_Monster>();
         _agent = GetComponent<NavMeshAgent>();
@@ -92,7 +92,7 @@ public class CharacterController_Monster : MonoBehaviour
         if ((_goalPos - position).magnitude <= _distanceGoalPosReached)
             return;
 
-        Debug.Log("Stopping coroutine");
+        //Debug.Log("Stopping coroutine");
         //stop switch to strolling behaviour
         StopAllCoroutines();
         _makeRandomSoundRoutine = null;
@@ -114,7 +114,7 @@ public class CharacterController_Monster : MonoBehaviour
 
     IEnumerator MakeRandomSound()
     {
-        Debug.Log("Starting coroutine");
+        //Debug.Log("Starting coroutine");
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(_minTimeBetweenIdleSounds, _maxTimeBetweenIdleSounds));
@@ -138,6 +138,7 @@ public class CharacterController_Monster : MonoBehaviour
         NavMeshHit hit;
         NavMesh.SamplePosition(position, out hit, Mathf.Infinity, NavMesh.AllAreas);
         _goalPos = hit.position;
+
         _agent.SetDestination(hit.position);
     }
 

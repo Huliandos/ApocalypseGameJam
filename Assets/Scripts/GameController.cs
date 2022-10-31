@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.AI;
 
 public class GameController : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class GameController : MonoBehaviour
 
     PlayerController _player;
     CharacterController_Monster _monster;
+
+    SpawnMonsterTrigger _lastSpawnTrigger;
 
     const string _animatorState_monsterDeathAnim1 = "DeathAnim1";
     const string _animatorState_monsterDeathAnim2 = "DeathAnim2";
@@ -175,6 +178,21 @@ public class GameController : MonoBehaviour
         _gameOverCanvas.SetActive(true);
 
         _myGameState = GameStates.ENDING;
+    }
+
+    public void SpawnMonster(SpawnMonsterTrigger spawnTrigger, Vector3 spawnLocation, Vector3 firstGotoLocation) {
+        if (_lastSpawnTrigger != null)
+            _lastSpawnTrigger.enabled = true;
+
+        _lastSpawnTrigger = spawnTrigger;
+
+        if (!_monster.gameObject.activeInHierarchy)
+            _monster.gameObject.SetActive(true);
+
+        _monster.GetComponent<NavMeshAgent>().Warp(spawnLocation);
+        _monster.HearAudio(firstGotoLocation);
+
+        _lastSpawnTrigger.enabled = false;
     }
 
 

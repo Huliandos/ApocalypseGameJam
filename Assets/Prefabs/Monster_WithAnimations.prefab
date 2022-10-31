@@ -2078,6 +2078,13 @@ MonoBehaviour:
   _maxTimeToIdle: 5
   _maxRangeToStroll: 10
   _distanceGoalPosReached: 0.4
+  _idleSounds:
+  - {fileID: 8300000, guid: 0dc2c93d27fb68e409bc06a4e0b1c7fe, type: 3}
+  - {fileID: 8300000, guid: 1407e37b51be0ae4f8ea4955658bd32f, type: 3}
+  - {fileID: 8300000, guid: a4c9c3503b493274da4cfd7a413c0411, type: 3}
+  - {fileID: 8300000, guid: 321e81ced6b689d4c840d27162d0942a, type: 3}
+  _minTimeBetweenIdleSounds: 5
+  _maxTimeBetweenIdleSounds: 10
   _steps:
   - {fileID: 8300000, guid: fedfb7a003008a64499c470d8a667a3d, type: 3}
   - {fileID: 8300000, guid: 022de5c4463c4f94f91bed1c59d54a46, type: 3}
