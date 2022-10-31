@@ -13347,7 +13347,7 @@ PrefabInstance:
     - target: {fileID: 5751640989831586682, guid: 00379f7646f0ca84692c5130a26a1177, type: 3}
       propertyPath: _doorLockedSound
       value: 
-      objectReference: {fileID: 8300000, guid: 940ce5898305df3499ed37a661683c6d, type: 3}
+      objectReference: {fileID: 8300000, guid: 7675d58732f0d8d4fb454bee159d5665, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00379f7646f0ca84692c5130a26a1177, type: 3}
 --- !u!4 &801699334 stripped
@@ -13868,7 +13868,7 @@ PrefabInstance:
     - target: {fileID: 5751640989831586682, guid: 00379f7646f0ca84692c5130a26a1177, type: 3}
       propertyPath: _doorLockedSound
       value: 
-      objectReference: {fileID: 8300000, guid: 940ce5898305df3499ed37a661683c6d, type: 3}
+      objectReference: {fileID: 8300000, guid: 7675d58732f0d8d4fb454bee159d5665, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00379f7646f0ca84692c5130a26a1177, type: 3}
 --- !u!4 &814790504 stripped
@@ -14900,7 +14900,7 @@ PrefabInstance:
     - target: {fileID: 5751640989831586682, guid: 00379f7646f0ca84692c5130a26a1177, type: 3}
       propertyPath: _doorLockedSound
       value: 
-      objectReference: {fileID: 8300000, guid: 940ce5898305df3499ed37a661683c6d, type: 3}
+      objectReference: {fileID: 8300000, guid: 7675d58732f0d8d4fb454bee159d5665, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00379f7646f0ca84692c5130a26a1177, type: 3}
 --- !u!4 &871960635 stripped
@@ -19307,7 +19307,7 @@ PrefabInstance:
     - target: {fileID: 5751640989831586682, guid: 00379f7646f0ca84692c5130a26a1177, type: 3}
       propertyPath: _doorLockedSound
       value: 
-      objectReference: {fileID: 8300000, guid: 940ce5898305df3499ed37a661683c6d, type: 3}
+      objectReference: {fileID: 8300000, guid: 7675d58732f0d8d4fb454bee159d5665, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00379f7646f0ca84692c5130a26a1177, type: 3}
 --- !u!4 &1160051837 stripped
@@ -24480,7 +24480,7 @@ PrefabInstance:
     - target: {fileID: 5751640989831586682, guid: 00379f7646f0ca84692c5130a26a1177, type: 3}
       propertyPath: _doorLockedSound
       value: 
-      objectReference: {fileID: 8300000, guid: 940ce5898305df3499ed37a661683c6d, type: 3}
+      objectReference: {fileID: 8300000, guid: 7675d58732f0d8d4fb454bee159d5665, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00379f7646f0ca84692c5130a26a1177, type: 3}
 --- !u!4 &1511134080 stripped
@@ -26329,7 +26329,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7affc9549af641547b8c1e39ee7d3beb, type: 3}
   _closingSounds:
   - {fileID: 8300000, guid: 96cda6da069b4db40b54b8d8c32cc5f1, type: 3}
-  _doorLockedSound: {fileID: 8300000, guid: 940ce5898305df3499ed37a661683c6d, type: 3}
+  _doorLockedSound: {fileID: 8300000, guid: 7675d58732f0d8d4fb454bee159d5665, type: 3}
   _animator: {fileID: 1392603180}
 --- !u!82 &1629211608
 AudioSource:
@@ -29144,7 +29144,7 @@ PrefabInstance:
     - target: {fileID: 5751640989831586682, guid: 00379f7646f0ca84692c5130a26a1177, type: 3}
       propertyPath: _doorLockedSound
       value: 
-      objectReference: {fileID: 8300000, guid: 940ce5898305df3499ed37a661683c6d, type: 3}
+      objectReference: {fileID: 8300000, guid: 7675d58732f0d8d4fb454bee159d5665, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00379f7646f0ca84692c5130a26a1177, type: 3}
 --- !u!1 &1801995512 stripped
@@ -34440,7 +34440,7 @@ PrefabInstance:
     - target: {fileID: 5751640989831586682, guid: 00379f7646f0ca84692c5130a26a1177, type: 3}
       propertyPath: _doorLockedSound
       value: 
-      objectReference: {fileID: 8300000, guid: 940ce5898305df3499ed37a661683c6d, type: 3}
+      objectReference: {fileID: 8300000, guid: 7675d58732f0d8d4fb454bee159d5665, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00379f7646f0ca84692c5130a26a1177, type: 3}
 --- !u!4 &2094084045 stripped
