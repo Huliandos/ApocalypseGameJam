@@ -11,7 +11,10 @@ public class GameController : MonoBehaviour
     GameStates _myGameState = GameStates.INTRO;
 
     [SerializeField]
-    GameObject _gameOverCanvas;
+    GameObject _gameOverCanvas, _victoryCanvas;
+
+    [SerializeField]
+    AudioClip _monsterHitAudio, _playerFallAudio, _monsterCrawlAudio, _monsterEatAudio;
 
     AudioSource _audioSource;
 
@@ -38,12 +41,14 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+            VictoryAnimation();
         switch (_myGameState) {
             //allow restarting or quitting the game here
             case GameStates.ENDING:
                 if (Input.GetKeyDown(KeyCode.R))
                     //ToDo: Change to the correct scene here
-                    SceneManager.LoadScene(0);
+                    SceneManager.LoadScene("UniCellLabs_props");
                 if (Input.GetKeyDown(KeyCode.Escape))
                     Application.Quit();
                 break;
@@ -51,8 +56,10 @@ public class GameController : MonoBehaviour
     }
 
     //ToDo: This is very jank rn, but maybe just enough for the game jam
-    public IEnumerator DeathAnimation() {
+    public IEnumerator DeathAnimation(bool withoutEnding = false) {
         #region setup
+        _audioSource.Stop();
+
         //disable all controller scripts
         _player.enabled = false;
         _monster.enabled = false;
@@ -96,7 +103,10 @@ public class GameController : MonoBehaviour
         monsterAnimator.SetTrigger(_animatorState_monsterDeathAnim1);
 
         //got this number from testing. VERY unclean
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(.5f);
+        _audioSource.PlayOneShot(_monsterHitAudio);
+
+        yield return new WaitForSeconds(.5f);
 
         #region player falling and flashlight turn off
         //player falling
@@ -118,6 +128,8 @@ public class GameController : MonoBehaviour
             t += Time.deltaTime * perFrameDistance;    //ToDo: set to proper timescale
             yield return 0;
         }
+
+        _audioSource.PlayOneShot(_playerFallAudio);
         #endregion
 
         #region get up and look at monster
@@ -141,6 +153,9 @@ public class GameController : MonoBehaviour
         #endregion
 
         #region monster crawling and player falling prone
+        _audioSource.clip = _monsterCrawlAudio;
+        _audioSource.Play();
+
         perFrameDistance = 1;
         t = 0;
         playerStartPosition = Camera.main.transform.position;
@@ -170,19 +185,44 @@ public class GameController : MonoBehaviour
         #endregion
 
         yield return new WaitForSeconds(.1f);
+        _audioSource.Stop();
 
         monsterAnimator.SetTrigger(_animatorState_monsterDeathAnim3);
 
+        _audioSource.clip = _monsterEatAudio;
+        _audioSource.Play();
+
         yield return new WaitForSeconds(.4f);
 
-        _gameOverCanvas.SetActive(true);
+        if (!withoutEnding)
+        {
+            _gameOverCanvas.SetActive(true);
 
-        _myGameState = GameStates.ENDING;
+            _myGameState = GameStates.ENDING;
+        }
+        else
+        {
+            _victoryCanvas.SetActive(true);
+
+            yield return new WaitForSeconds(4);
+
+            SceneManager.LoadScene("EndingCutscene");
+        }
+    }
+
+    public void VictoryAnimation() {
+        //teleport monster behind player
+        Vector3 playerPositionYZero = _player.transform.position, playerForwardYZero = Camera.main.transform.forward;
+        playerPositionYZero.y = 0;
+        playerForwardYZero.y = 0;
+
+        _monster.transform.position = playerPositionYZero - playerForwardYZero.normalized;
+        StartCoroutine(DeathAnimation(true));
     }
 
     public void SpawnMonster(SpawnMonsterTrigger spawnTrigger, Vector3 spawnLocation, Vector3 firstGotoLocation) {
         if (_lastSpawnTrigger != null)
-            _lastSpawnTrigger.enabled = true;
+            _lastSpawnTrigger.gameObject.SetActive(true);
 
         _lastSpawnTrigger = spawnTrigger;
 
@@ -191,8 +231,6 @@ public class GameController : MonoBehaviour
 
         _monster.GetComponent<NavMeshAgent>().Warp(spawnLocation);
         _monster.HearAudio(firstGotoLocation);
-
-        _lastSpawnTrigger.enabled = false;
     }
 
 

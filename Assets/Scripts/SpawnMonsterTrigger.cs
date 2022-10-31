@@ -18,6 +18,8 @@ public class SpawnMonsterTrigger : MonoBehaviour
     {
         if (other.gameObject.tag == Tags.Player) {
             _gameController.SpawnMonster(this, _monsterSpawn.position, _monsterGoto.position);
+
+            gameObject.SetActive(false);
         }
     }
 }
