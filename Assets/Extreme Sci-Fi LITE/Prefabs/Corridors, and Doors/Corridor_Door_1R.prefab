@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 412290}
   - component: {fileID: 3353964}
   - component: {fileID: 2336470}
-  - component: {fileID: 6473160}
+  - component: {fileID: 4325958213075662561}
   m_Layer: 0
   m_Name: Corridor_Door_1R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &412290
 Transform:
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6473160
-MeshCollider:
+--- !u!65 &4325958213075662561
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,7 +94,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: e63dd9175d8b1954cafd0679808bb39c, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1.9439998, y: 4.3305864, z: 0.32000244}
+  m_Center: {x: -0.023247302, y: -0.0074483156, z: -0.000000014901161}

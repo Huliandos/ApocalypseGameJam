@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 499850}
   - component: {fileID: 3357362}
   - component: {fileID: 2319378}
-  - component: {fileID: 6492900}
+  - component: {fileID: 959227662959387748}
   m_Layer: 0
   m_Name: Corridor_Door_1R
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6492900
-MeshCollider:
+--- !u!65 &959227662959387748
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,10 +94,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300012, guid: e63dd9175d8b1954cafd0679808bb39c, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1.9439996, y: 4.3305864, z: 0.3200024}
+  m_Center: {x: -0.0232473, y: -0.007447839, z: -0.000000029802322}
 --- !u!1 &182142
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +108,7 @@ GameObject:
   - component: {fileID: 460224}
   - component: {fileID: 3307806}
   - component: {fileID: 2334958}
-  - component: {fileID: 6415584}
+  - component: {fileID: 1557885475144197505}
   m_Layer: 0
   m_Name: Corridor_Door_1L
   m_TagString: Untagged
@@ -182,8 +181,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6415584
-MeshCollider:
+--- !u!65 &1557885475144197505
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -192,10 +191,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300010, guid: e63dd9175d8b1954cafd0679808bb39c, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1.9439996, y: 4.3305864, z: 0.3200024}
+  m_Center: {x: 0.02323204, y: -0.007447839, z: -0.000001937151}
 --- !u!1 &199584
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,7 +205,6 @@ GameObject:
   - component: {fileID: 437172}
   - component: {fileID: 3346298}
   - component: {fileID: 2340146}
-  - component: {fileID: 6495616}
   - component: {fileID: 5159931825062225344}
   - component: {fileID: 1094628062345070179}
   m_Layer: 0
@@ -215,7 +212,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &437172
 Transform:
@@ -285,20 +282,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6495616
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 199584}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300008, guid: e63dd9175d8b1954cafd0679808bb39c, type: 3}
 --- !u!65 &5159931825062225344
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -341,7 +324,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &689215882558553694
 Transform:
