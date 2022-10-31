@@ -25,7 +25,7 @@ public class SoundCaster : MonoBehaviour
         _audioSource.PlayOneShot(clip);
 
         //only if the monster is actually spawned
-        if (!_monster.gameObject.activeSelf)
+        if (_monster == null || !_monster.gameObject.activeSelf)
             return;
 
         float distanceToMonster = (_monster.transform.position - transform.position).magnitude;
