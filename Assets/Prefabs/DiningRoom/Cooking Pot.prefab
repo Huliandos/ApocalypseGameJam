@@ -12,13 +12,10 @@ GameObject:
   - component: {fileID: 666559006643771605}
   - component: {fileID: 666559006642772501}
   - component: {fileID: 8987573135133371059}
-  - component: {fileID: 8987573135133371053}
-  - component: {fileID: 8987573135133371054}
-  - component: {fileID: 8987573135133371055}
-  - component: {fileID: 8987573135133371060}
   - component: {fileID: 8987573135133371056}
   - component: {fileID: 8987573135133371057}
   - component: {fileID: 8987573135133371058}
+  - component: {fileID: 59401558347776523}
   m_Layer: 0
   m_Name: Cooking Pot
   m_TagString: Interactable
@@ -107,58 +104,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &8987573135133371053
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666559006644700373}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.23, y: 0.30227423, z: 0.07}
-  m_Center: {x: 0, y: 0, z: -0.1380024}
---- !u!65 &8987573135133371054
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666559006644700373}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.23, y: 0.30227423, z: 0.07}
-  m_Center: {x: 0, y: 0, z: 0.1380024}
---- !u!65 &8987573135133371055
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666559006644700373}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.06647873, y: 0.30227423, z: 0.21}
-  m_Center: {x: 0.1380024, y: 0, z: 0}
---- !u!65 &8987573135133371060
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666559006644700373}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.06647873, y: 0.30227423, z: 0.21}
-  m_Center: {x: -0.1380024, y: 0, z: 0}
 --- !u!82 &8987573135133371056
 AudioSource:
   m_ObjectHideFlags: 0
@@ -281,4 +226,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _throwingForce: 450
   _hitClip: {fileID: 8300000, guid: 7d97188cc0e43ef4d8a5d31a0b5ff55a, type: 3}
-  _range: 4
+  _range: 8
+--- !u!65 &59401558347776523
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666559006644700373}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.31453323, y: 0.30227423, z: 0.3134613}
+  m_Center: {x: 0.0000019073486, y: 0, z: -0.0011444092}

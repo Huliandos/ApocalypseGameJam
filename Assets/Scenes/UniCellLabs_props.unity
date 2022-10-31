@@ -1311,7 +1311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5218705861518652799, guid: ade5edfd2771c15439bf7c40e740aa6f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.166
+      value: 37.4
       objectReference: {fileID: 0}
     - target: {fileID: 5218705861518652799, guid: ade5edfd2771c15439bf7c40e740aa6f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1319,7 +1319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5218705861518652799, guid: ade5edfd2771c15439bf7c40e740aa6f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.227
+      value: -89.7
       objectReference: {fileID: 0}
     - target: {fileID: 5218705861518652799, guid: ade5edfd2771c15439bf7c40e740aa6f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -36518,10 +36518,6 @@ PrefabInstance:
     - target: {fileID: 666559006644700373, guid: 16844e3c4d02bd74a964b39caa440bfc, type: 3}
       propertyPath: m_Name
       value: Cooking Pot
-      objectReference: {fileID: 0}
-    - target: {fileID: 8987573135133371058, guid: 16844e3c4d02bd74a964b39caa440bfc, type: 3}
-      propertyPath: _range
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16844e3c4d02bd74a964b39caa440bfc, type: 3}
