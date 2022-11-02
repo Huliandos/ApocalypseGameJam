@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Desert.unity
     guid: ed16999b6746d3b4289928500892df19
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/UniCellLabs_props.unity
     guid: 5dd0de035ea3abd48a258ca59724ca06
   - enabled: 1
